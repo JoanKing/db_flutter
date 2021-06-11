@@ -70,5 +70,4 @@ class HttpRequest {
     Map<String, dynamic> params, Interceptor inter}) async {
     return await _request(url, method: 'post', params: params, inter: inter);
   }
-
 }
