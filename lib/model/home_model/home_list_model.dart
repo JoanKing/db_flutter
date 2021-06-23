@@ -21,7 +21,7 @@ int counter = 1;
 
 class MovieItem {
   int rank;
-  String imageURL;
+  String imageUrl;
   String title;
   String playDate;
   double rating;
@@ -32,7 +32,7 @@ class MovieItem {
 
   MovieItem.fromMap(Map<String, dynamic> json) {
     this.rank = counter++;
-    this.imageURL = json["images"]["medium"];
+    this.imageUrl = json["imageUrl"];
     this.title = json["title"];
     this.playDate = json["year"];
     this.rating = json["rating"]["average"];
@@ -42,10 +42,5 @@ class MovieItem {
     }).toList();
     this.director = Director.fromMap(json["directors"][0]);
     this.originalTitle = json["original_title"];
-  }
-
-  @override
-  String toString() {
-    return 'MovieItem{rank: $rank, imageURL: $imageURL, title: $title, playDate: $playDate, rating: $rating, genres: $genres, casts: $casts, director: $director, originalTitle: $originalTitle}';
   }
 }

@@ -1,3 +1,4 @@
+import 'package:db_flutter/model/home_model/home_list_model.dart';
 import 'package:db_flutter/pages/home/home_service/home_request.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,9 @@ class JKHomeContent extends StatefulWidget {
 
 class _JKHomeContentState extends State<JKHomeContent> {
 
+  /// 数据列表
+  final List<MovieItem> movies = [];
+
   @override
   void initState() {
     // TODO: implement initState
@@ -15,16 +19,20 @@ class _JKHomeContentState extends State<JKHomeContent> {
 
     HomeRequest.requestMoveLIst().then((items) {
       print("item的数量：${items.length}\n 数据$items");
+      setState(() {
+        movies.addAll(items);
+      });
     });
   }
   
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: 30,
+        itemCount: movies.length,
         itemBuilder: (ctx, index) {
           return ListTile(
-            title: Text("这是第：$index 个"),
+            title: Text("${movies[index].title}"),
+            leading: Image.network("${movies[index].imageUrl}"),
           );
         });
   }
