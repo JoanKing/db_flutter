@@ -1,5 +1,6 @@
 
 import 'package:db_flutter/pages/main/main.dart';
+import 'package:db_flutter/utils/log.dart';
 import 'package:flutter/material.dart';
 
 main() => runApp(MyApp());
@@ -7,6 +8,7 @@ main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    jkLog("测试打印", StackTrace.current);
     return MaterialApp(
       title: "Flutter Demo",
       theme: ThemeData(

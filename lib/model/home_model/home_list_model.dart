@@ -24,7 +24,7 @@ class MovieItem {
   String imageUrl;
   String title;
   String playDate;
-  double rating;
+  String rating;
   List<String> genres;
   List<Actor> casts;
   Director director;

@@ -1,4 +1,5 @@
 import 'package:db_flutter/model/home_model/home_list_model.dart';
+import 'package:db_flutter/pages/home/home_movie_item.dart';
 import 'package:db_flutter/pages/home/home_service/home_request.dart';
 import 'package:flutter/material.dart';
 
@@ -30,10 +31,8 @@ class _JKHomeContentState extends State<JKHomeContent> {
     return ListView.builder(
         itemCount: movies.length,
         itemBuilder: (ctx, index) {
-          return ListTile(
-            title: Text("${movies[index].title}"),
-            leading: Image.network("${movies[index].imageUrl}"),
-          );
-        });
+          return JKHomeMovieItem(movies[index]);
+        }
+    );
   }
 }
